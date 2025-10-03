@@ -18,4 +18,4 @@ jobs:
         uses: actions/checkout@v4
 
       - run: |
-          gcc -o prog -fsanitize=address -Wl,-fsanitize=address main.c
+          gcc main.c -o prog -fsanitize=address
