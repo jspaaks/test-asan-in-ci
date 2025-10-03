@@ -19,3 +19,6 @@ jobs:
 
       - run: |
           gcc -std=c2x main.c -o prog -fsanitize=address
+
+      - run: |
+          ./prog
