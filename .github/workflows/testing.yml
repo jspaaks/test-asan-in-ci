@@ -1,6 +1,7 @@
 name: testing
 
 on:
+  push:
   workflow_dispatch:
 
 jobs:
@@ -17,8 +18,11 @@ jobs:
       - name: Get a copy of the repository contents
         uses: actions/checkout@v4
 
-      - run: |
-          gcc -std=c2x main.c -o prog -fsanitize=address
-
-      - run: |
-          ./prog
+      - name: both-nested-with-external 
+        run: |
+          cd both-nested-with-external/calculator-project/build
+          cmake ..
+          cmake --build .
+          cmake --install .
+          ./dist/bin/calculator
+          ./dist/bin/test_operations -j1 --verbose
