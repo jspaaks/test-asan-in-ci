@@ -49,11 +49,9 @@ jobs:
     
       - name: both-nested-with-external 
         run: |
-          cd both-nested-with-external/calculator-project
-          ls -l
-          # cd both-nested-with-external/calculator-project/build
-          # cmake ..
-          # cmake --build .
-          # cmake --install .
-          # ./dist/bin/calculator
-          # ./dist/bin/test_operations -j1 --verbose
+          cd both-nested-with-external/calculator-project/build
+          cmake ..
+          cmake --build .
+          cmake --install .
+          ./dist/bin/calculator
+          ./dist/bin/test_operations -j1 --verbose
