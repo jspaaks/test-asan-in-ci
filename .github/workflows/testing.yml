@@ -1,0 +1,21 @@
+name: testing
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  testing:
+    name: py${{ matrix.python-version }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ 'macos-14' ]
+        python-version: ['3.13']
+    steps:
+      - name: Get a copy of the repository contents
+        uses: actions/checkout@v4
+
+      - run: |
+          gcc -o prog main.c
