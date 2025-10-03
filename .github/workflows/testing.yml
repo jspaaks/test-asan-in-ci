@@ -48,6 +48,8 @@ jobs:
       #   run: CC='gcc-15 -I/opt/homebrew/include -L/opt/homebrew/lib' NFUZZY=100 python -m pytest -ra --verbose
     
       - name: both-nested-with-external 
+        env:
+          CMAKE_INCLUDE_PATH: "/opt/homebrew/Cellar"
         run: |
           cd both-nested-with-external/calculator-project/build
           cmake ..
