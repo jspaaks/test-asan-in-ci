@@ -51,7 +51,7 @@ jobs:
     
       - name: both-nested-with-external 
         env:
-          CMAKE_INCLUDE_PATH: "/opt/homebrew/Cellar"
+          CMAKE_INCLUDE_PATH: "/opt/homebrew/opt/criterion/include"
         run: |
           cd both-nested-with-external/calculator-project/build
           cmake ..
