@@ -22,8 +22,8 @@ jobs:
       - name: cmake --version
         run: cmake --version
 
-      # - name: (macos-14) Install Criterion
-      #   run: brew install criterion
+      - name: (macos-14) Install Criterion
+        run: brew install criterion
 
       - name: Get a copy of the repository contents
         uses: actions/checkout@v4
