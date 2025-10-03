@@ -15,14 +15,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ 'macos-14' ]
+        os: [ 'macos-15' ]
         python-version: ['3.13']
     steps:
 
       - name: cmake --version
         run: cmake --version
 
-      - name: (macos-14) Install Criterion
+      - name: (macos-15) Install Criterion
         run: brew install criterion
 
       - name: Get a copy of the repository contents
@@ -44,8 +44,8 @@ jobs:
       # - name: Install the template with its testing dependencies
       #   run: python -m pip install .[testing]
 
-      # - name: (macos-14) Run fuzzy tests
-      #   run: CC='gcc-14 -I/opt/homebrew/include -L/opt/homebrew/lib' NFUZZY=100 python -m pytest -ra --verbose
+      # - name: (macos-15) Run fuzzy tests
+      #   run: CC='gcc-15 -I/opt/homebrew/include -L/opt/homebrew/lib' NFUZZY=100 python -m pytest -ra --verbose
     
       - name: both-nested-with-external 
         run: |
