@@ -3,7 +3,7 @@
 
 int main (void) {
 
-    constexpr n = 3;
+    constexpr size_t n = 3;
     int arr[n] = {};
     
     for (size_t i = 0; i <= n; i++) {
