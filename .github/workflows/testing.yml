@@ -22,10 +22,9 @@ jobs:
       - name: cmake --version
         run: cmake --version
 
-      - name: (macos-15) Install Criteriongrep CMAKE_INCLUDE_PATH CMakeCache.txt
+      - name: (macos-15) Install Criterion
         run: |
           brew install criterion
-          brew --prefix criterion
 
       - name: Get a copy of the repository contents
         uses: actions/checkout@v4
@@ -53,6 +52,7 @@ jobs:
         env:
           CMAKE_INCLUDE_PATH: /opt/homebrew/include
         run: |
+          brew --prefix criterion
           find /opt/homebrew/ -maxdepth 7 -name "*criterion*" 
           cd both-nested-with-external/calculator-project/build
           cmake ..
