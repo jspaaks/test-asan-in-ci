@@ -36,7 +36,8 @@ jobs:
       - name: both-nested-with-external
         run: |
           cd both-nested-with-external/calculator-project/build
-          cmake -DCMAKE_BUILD_TYPE=Debug ..
+          $Env:CC='gcc'
+          cmake ..
           cmake --build .
           cmake --install .
           tree /F
