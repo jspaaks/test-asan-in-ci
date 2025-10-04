@@ -15,16 +15,24 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ 'macos-15-intel' ]
+        os: [ 'windows-2025' ]
         python-version: ['3.13']
     steps:
 
       - name: cmake --version
         run: cmake --version
 
-      - name: (macos-15-intel) Install Criterion
+      - name: Install meson
+        run: choco install meson -y
+
+      - name: Install Criterion
         run: |
-          brew install criterion
+          Invoke-WebRequest -Uri https://github.com/Snaipe/Criterion/archive/refs/tags/v2.4.2.tar.gz -OutFile Criterion-2.4.2.tar.gz
+          tar -xvf Criterion-2.4.2.tar.gz
+          cd Criterion-2.4.2
+          meson setup build
+          meson compile -C build
+          meson install -C build
 
       - name: Get a copy of the repository contents
         uses: actions/checkout@v4
@@ -42,16 +50,8 @@ jobs:
       - name: Upgrade pip, setuptools and wheel
         run: python -m pip install --upgrade pip setuptools wheel
 
-      # - name: Install the template with its testing dependencies
-      #   run: python -m pip install .[testing]
-
-      # - name: (macos-15-intel) Run fuzzy tests
-      #   run: CC='gcc-15 -I/opt/homebrew/include -L/opt/homebrew/lib' NFUZZY=100 python -m pytest -ra --verbose
-    
       - name: both-nested-with-external
         run: |
-          # brew --prefix criterion
-          # find /opt/homebrew/ -maxdepth 7 -name "*criterion*" 
           cd both-nested-with-external/calculator-project/build
           cmake ..
           cmake --build .
