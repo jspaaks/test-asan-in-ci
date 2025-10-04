@@ -55,8 +55,7 @@ jobs:
           brew --prefix criterion
           find /opt/homebrew/ -maxdepth 7 -name "*criterion*" 
           cd both-nested-with-external/calculator-project/build
-          cmake ..
-          cat CMakeCache.txt
+          cmake -DCMAKE_INCLUDE_PATH=/opt/homebrew/include ..
           cmake --build .
           cmake --install .
           ./dist/bin/calculator
