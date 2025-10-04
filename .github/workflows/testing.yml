@@ -23,6 +23,7 @@ jobs:
         run: |
           choco install meson -y
           choco install ninja -y
+          choco install mingw -y
           Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
           refreshenv
           Invoke-WebRequest -Uri https://github.com/Snaipe/Criterion/archive/refs/tags/v2.4.2.tar.gz -OutFile Criterion-2.4.2.tar.gz
@@ -44,6 +45,7 @@ jobs:
           cmake --version
           meson --version
           ninja --version
+          gcc --version
           python --version
 
       - name: Upgrade pip, setuptools and wheel
