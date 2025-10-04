@@ -36,8 +36,7 @@ jobs:
       - name: both-nested-with-external
         run: |
           cd both-nested-with-external/calculator-project/build
-          $Env:CC='gcc'
-          cmake ..
+          cmake -DCMAKE_C_COMPILER="gcc" ..
           cmake --build .
           cmake --install .
           tree /F
