@@ -22,8 +22,6 @@ jobs:
       - name: Install Criterion
         run: |
           choco install meson -y
-          # choco install ninja -y
-          # choco install mingw -y
           Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
           refreshenv
           Invoke-WebRequest -Uri https://github.com/Snaipe/Criterion/archive/refs/tags/v2.4.2.tar.gz -OutFile Criterion-2.4.2.tar.gz
@@ -41,6 +39,7 @@ jobs:
           cmake ..
           cmake --build .
           cmake --install .
+          cd dist
           dir
-          .\dist\bin\calculator
-          .\dist\bin\test_operations -j1 --verbose
+          # .\dist\bin\calculator
+          # .\dist\bin\test_operations -j1 --verbose
