@@ -30,7 +30,7 @@ target_compile_definitions(
 target_compile_features(
     tgt_exe_calculator
     PRIVATE
-        c_std_23
+        c_std_17
 )
 
 target_compile_options(

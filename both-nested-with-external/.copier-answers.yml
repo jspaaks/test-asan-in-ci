@@ -6,7 +6,7 @@ add_clang_format: true
 add_external: true
 add_test: true
 build_directory: build
-c_std: c_std_23
+c_std: c_std_17
 exename: calculator
 external_directory: external
 libname: operations
