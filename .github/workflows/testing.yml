@@ -36,7 +36,7 @@ jobs:
       - name: both-nested-with-external
         run: |
           cd both-nested-with-external/calculator-project/build
-          cmake -DCMAKE_C_COMPILER="clang" ..
+          cmake --fresh -DCMAKE_C_COMPILER="clang" ..
           cmake --build .
           cmake --install .
           tree /F
