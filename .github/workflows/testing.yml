@@ -35,22 +35,6 @@ jobs:
       - name: Get a copy of the repository contents
         uses: actions/checkout@v4
 
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-
-      - name: Show versions
-        run: |
-          cmake --version
-          meson --version
-          ninja --version
-          gcc --version
-          python --version
-
-      - name: Upgrade pip, setuptools and wheel
-        run: python -m pip install --upgrade pip setuptools wheel
-
       - name: both-nested-with-external
         run: |
           cd both-nested-with-external/calculator-project/build
