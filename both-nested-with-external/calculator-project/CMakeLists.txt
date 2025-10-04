@@ -12,8 +12,6 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set_property(CACHE CMAKE_INSTALL_PREFIX PROPERTY VALUE "${CMAKE_BINARY_DIR}/dist")
 endif()
 
-add_subdirectory(${PROJECT_ROOT}/assets)
-add_subdirectory(${PROJECT_ROOT}/external/their)
 add_subdirectory(${PROJECT_ROOT}/src/calculator)
 add_subdirectory(${PROJECT_ROOT}/src/operations)
 include(CTest)  # defines BUILD_TESTING
