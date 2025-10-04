@@ -56,7 +56,7 @@ jobs:
           find /opt/homebrew/ -maxdepth 7 -name "*criterion*" 
           cd both-nested-with-external/calculator-project/build
           cmake ..
-          export CMAKE_INCLUDE_PATH="/opt/homebrew/Cellar/criterion/2.4.2_2/include/" cmake --build .
+          CMAKE_INCLUDE_PATH="/opt/homebrew/Cellar/criterion/2.4.2_2/include/" export CMAKE_INCLUDE_PATH cmake --build .
           # cmake --install .
           # ./dist/bin/calculator
           # ./dist/bin/test_operations -j1 --verbose
