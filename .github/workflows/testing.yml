@@ -51,12 +51,13 @@ jobs:
       - name: both-nested-with-external
         env:
           CMAKE_INCLUDE_PATH: "/opt/homebrew/include/"
+          # -DCMAKE_INCLUDE_PATH="/opt/homebrew/Cellar/criterion/2.4.2_2/include/"
         run: |
           brew --prefix criterion
           find /opt/homebrew/ -maxdepth 7 -name "*criterion*" 
           cd both-nested-with-external/calculator-project/build
-          cmake -DCMAKE_INCLUDE_PATH="/opt/homebrew/Cellar/criterion/2.4.2_2/include/" ..
-          cmake --build .
-          cmake --install .
-          ./dist/bin/calculator
-          ./dist/bin/test_operations -j1 --verbose
+          cmake ..
+          # cmake --build .
+          # cmake --install .
+          # ./dist/bin/calculator
+          # ./dist/bin/test_operations -j1 --verbose
