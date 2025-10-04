@@ -22,7 +22,7 @@ jobs:
       - name: cmake --version
         run: cmake --version
 
-      - name: (macos-15) Install Criterion
+      - name: (macos-15) Install Criteriongrep CMAKE_INCLUDE_PATH CMakeCache.txt
         run: |
           brew install criterion
           brew --prefix criterion
@@ -49,12 +49,15 @@ jobs:
       # - name: (macos-15) Run fuzzy tests
       #   run: CC='gcc-15 -I/opt/homebrew/include -L/opt/homebrew/lib' NFUZZY=100 python -m pytest -ra --verbose
     
-      - name: both-nested-with-external 
+      - name: both-nested-with-external
+        env:
+          CMAKE_INCLUDE_PATH: /opt/homebrew/include
         run: |
           find /opt/homebrew/ -maxdepth 7 -name "*criterion*" 
           cd both-nested-with-external/calculator-project/build
           cmake ..
-          CMAKE_INCLUDE_PATH="/opt/homebrew/include/" cmake --build .
+          cat CMakeCache.txt
+          cmake --build .
           cmake --install .
           ./dist/bin/calculator
           ./dist/bin/test_operations -j1 --verbose
