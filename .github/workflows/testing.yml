@@ -22,11 +22,11 @@ jobs:
       - name: cmake --version
         run: cmake --version
 
-      - name: Install meson
-        run: choco install meson -y
-
       - name: Install Criterion
         run: |
+          choco install meson -y
+          Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
+          refreshenv
           Invoke-WebRequest -Uri https://github.com/Snaipe/Criterion/archive/refs/tags/v2.4.2.tar.gz -OutFile Criterion-2.4.2.tar.gz
           tar -xvf Criterion-2.4.2.tar.gz
           cd Criterion-2.4.2
