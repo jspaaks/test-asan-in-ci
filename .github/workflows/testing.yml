@@ -39,8 +39,4 @@ jobs:
           cmake ..
           cmake --build .
           cmake --install .
-          cd dist
-          dir
           tree /F
-          # .\dist\bin\calculator
-          # .\dist\bin\test_operations -j1 --verbose
