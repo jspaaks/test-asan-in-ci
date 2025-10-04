@@ -48,13 +48,6 @@ target_include_directories(
     tgt_lib_operations
     PRIVATE
         ${PROJECT_ROOT}/include
-        ${PROJECT_ROOT}/external/their/include
-)
-
-target_link_libraries(
-    tgt_lib_operations
-    PRIVATE
-        tgt_lib_their
 )
 
 target_link_options(
