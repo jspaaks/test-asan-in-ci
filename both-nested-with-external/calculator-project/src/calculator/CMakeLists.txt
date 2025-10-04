@@ -37,7 +37,6 @@ target_compile_options(
     tgt_exe_calculator
     PRIVATE
         -Wall
-        -Wextra
         -pedantic
         $<$<CONFIG:Debug>:-g>
         $<$<CONFIG:Debug>:-O0>
