@@ -58,7 +58,7 @@ jobs:
           find /opt/homebrew/ -maxdepth 7 -name "*criterion*" 
           cd both-nested-with-external/calculator-project/build
           cmake ..
-          cmake --build .
+          cmake -DCMAKE_INCLUDE_PATH="/opt/homebrew/include/" --build .
           # cmake --install .
           # ./dist/bin/calculator
           # ./dist/bin/test_operations -j1 --verbose
